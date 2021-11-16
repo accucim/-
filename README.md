@@ -31,7 +31,7 @@ awk /패턴/ {동작}
 |특정 필드 합 계산|'{sum+=$2}END{print sum}'|
 |파일로부터 awk 실행|-f awk.script|
 
-**출력결과**
+* 출력결과
 
 ### $ awk '{print}' awk_example.txt
 ---
@@ -63,7 +63,7 @@ awk /패턴/ {동작}
 
 대게나라
 
-#### $ awk '/아구찜/' awk_example.txt
+### $ awk '/아구찜/' awk_example.txt
 ---
 탱고아구찜      40000   광주 삼각동
 김성용아구찜    28000   광주 문흥동
@@ -88,7 +88,7 @@ awk /패턴/ {동작}
 0
 4
 
-### $ awk '$1 == "대게나라" {print $1"\t" $2"\t" $3"\t" $4}' awk_example.txt
+#### $ awk '$1 == "대게나라" {print $1"\t" $2"\t" $3"\t" $4}' awk_example.txt
 ---
 대게나라        싯가    광주    상무지구
 
