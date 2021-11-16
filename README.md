@@ -31,6 +31,7 @@ awk /패턴/ {동작}
 |파일로부터 awk 실행|-f awk.script|
 
 **출력결과**
+
 $ awk '{print}' awk_example.txt
 가게이름        가격    위치
 탱고아구찜      40000   광주 삼각동
