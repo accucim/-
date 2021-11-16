@@ -16,6 +16,7 @@ awk는 기본적으로 입력 데이터를 라인 단위의 레코드로 인식�
 awk는 일정한 규칙을 가지고 있는 데이터를 처리하여 계산, 통계, 비교 분석, 필터링을 통한 데이터 추출 등에 다양하게 사용될 수 있다.
 
 * 기본 구조
+
 awk /패턴/ {동작}
 
 |예시|옵션(앞에 awk와 뒤의 filename은 생략)|
@@ -33,6 +34,7 @@ awk /패턴/ {동작}
 **출력결과**
 
 $ awk '{print}' awk_example.txt
+---
 가게이름        가격    위치
 탱고아구찜      40000   광주 삼각동
 
@@ -47,6 +49,7 @@ $ awk '{print}' awk_example.txt
 대게나라        싯가    광주 상무지구
 
 $ awk '{print $1}' awk_example.txt
+---
 가게이름
 탱고아구찜
 
@@ -61,14 +64,17 @@ $ awk '{print $1}' awk_example.txt
 대게나라
 
 $ awk '/아구찜/' awk_example.txt
+---
 탱고아구찜      40000   광주 삼각동
 김성용아구찜    28000   광주 문흥동
 포미아구찜      15000   목포 하당
 
 $ awk '/^장어/' awk_example.txt
+---
 장어나라        29000   광주 문흥동
 
 $ awk '{print NF}' awk_example.txt
+---
 3
 4
 0
@@ -83,9 +89,11 @@ $ awk '{print NF}' awk_example.txt
 4
 
 $ awk '$1 == "대게나라" {print $1"\t" $2"\t" $3"\t" $4}' awk_example.txt
+---
 대게나라        싯가    광주    상무지구
 
 $ awk -F'\t' '{print $1 $2}' awk_example.txt	//필드 분리자
+---
 가게이름가격
 탱고아구찜40000
 
@@ -100,6 +108,7 @@ $ awk -F'\t' '{print $1 $2}' awk_example.txt	//필드 분리자
 대게나라싯가
 
 $ awk '{sum+=$2}END{print sum}' awk_example.txt
+---
 161000
 
 
