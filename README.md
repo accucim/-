@@ -298,7 +298,7 @@ I'm super fine
 I don't need you anymore
 
 
-<datails> 
+<details> 
 <summary>접기/펼치기</summary>
 <div markdown="1">
 
@@ -307,4 +307,4 @@ ddddd
 
 
 </div>
-</datails>
+</details>
