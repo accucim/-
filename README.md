@@ -36,6 +36,9 @@ awk /패턴/ {동작}
 |특정 필드 합 계산|'{sum+=$2}END{print sum}'|
 |파일로부터 awk 실행|-f awk.script|
 
+<datails markdown="1">
+<summary>접기/펼치기</summary>
+
 ## * 출력결과
 
 ### $ awk '{print}' awk_example.txt
@@ -131,7 +134,7 @@ awk /패턴/ {동작}
 
 ---
 
-
+</datails>
 
 ## 4) **sed**
 > sed 명령어는 원복 텍스트 파일을 편집하는 명령어이다.
