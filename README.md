@@ -75,8 +75,12 @@ awk /패턴/ {동작}
 
 포미아구찜	15000	목포 하당
 
+---
+
 ### $ awk '/^장어/' awk_example.txt
 장어나라        29000   광주 문흥동
+
+---
 
 ### $ awk '{print NF}' awk_example.txt
 3
@@ -92,8 +96,12 @@ awk /패턴/ {동작}
 0
 4
 
+---
+
 ### $ awk '$1 == "대게나라" {print $1"\t" $2"\t" $3"\t" $4}' awk_example.txt
 대게나라        싯가    광주    상무지구
+
+---
 
 ### $ awk -F'\t' '{print $1 $2}' awk_example.txt	//필드 분리자
 가게이름가격
@@ -110,8 +118,10 @@ awk /패턴/ {동작}
 
 대게나라싯가
 
+---
+
 ### $ awk '{sum+=$2}END{print sum}' awk_example.txt
 161000
 
 
-4) ## **sed**
+## 4) **sed**
