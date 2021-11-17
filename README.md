@@ -41,7 +41,7 @@ awk /패턴/ {동작}
 <summary>사용예시</summary>
 <div markdown="1">
 
-* ## 출력결과
+## 출력결과
 
 ### $ awk '{print}' awk_example.txt
 
@@ -144,7 +144,7 @@ awk /패턴/ {동작}
 
 > 원본을 건드리지 않고 편집하기 때문에 작업이 완료되었어도 원본에는 영향이 없다.
 
-## * 사용법
+## 사용법
 
 > *sed [옵션] 'command' filename*
 
@@ -181,7 +181,7 @@ awk /패턴/ {동작}
 <summary>사용예시</summary>
 <div markdown="1">
 
-## * 출력결과
+## 출력결과
 
 ### $ cat sed_example.txt
 Two minus one
