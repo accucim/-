@@ -37,6 +37,10 @@ awk /패턴/ {동작}
 |파일로부터 awk 실행|-f awk.script|
 
 
+<details> 
+<summary>접기/펼치기</summary>
+<div markdown="1">
+
 ## * 출력결과
 
 ### $ awk '{print}' awk_example.txt
@@ -132,6 +136,8 @@ awk /패턴/ {동작}
 
 ---
 
+</div>
+</details>
 
 ## 4) **sed**
 > sed 명령어는 원복 텍스트 파일을 편집하는 명령어이다.
@@ -298,13 +304,8 @@ I'm super fine
 I don't need you anymore
 
 
-<details> 
-<summary>접기/펼치기</summary>
-<div markdown="1">
 
 
 ddddd
 
 
-</div>
-</details>
