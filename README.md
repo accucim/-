@@ -129,7 +129,7 @@ awk /패턴/ {동작}
 ### $ awk '{sum+=$2}END{print sum}' awk_example.txt
 161000
 
-
+---
 
 
 
