@@ -41,7 +41,7 @@ awk /패턴/ {동작}
 <summary>사용예시</summary>
 <div markdown="1">
 
-## * 출력결과
+* ## 출력결과
 
 ### $ awk '{print}' awk_example.txt
 
