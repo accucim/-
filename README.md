@@ -172,30 +172,48 @@ awk /패턴/ {동작}
 
 ## * 출력결과
 
-$ cat sed_example.txt
+### $ cat sed_example.txt
 Two minus one
+
 I can see you're doing really good without me, baby
+
 Two minus one
+
 I'm doing great myself
+
 Hope you know I am
+
 'Cause I'm not lonely, lonely, lonely, lonely, yeah
+
 Lonely, lonely, lonely, lonely, yeah
+
 Two minus one
+
 I'm super fine
+
 I don't need you anymore
 
 ---
 
 ### $ sed -n '/$/p' example.txt
 Two minus one
+
 I can see you're doing really good without me, baby
+
 Two minus one
+
 I'm doing great myself
+
 Hope you know I am
+
 'Cause I'm not lonely, lonely, lonely, lonely, yeah
+
 Lonely, lonely, lonely, lonely, yeah
+
 Two minus one
+
 I'm super fine
+
 I don't need you anymore
 
 ---
@@ -207,6 +225,7 @@ Two minus one
 
 ### $ sed -n '1,2p' example.txt
 Two minus one
+
 I can see you're doing really good without me, baby
 
 
@@ -214,25 +233,35 @@ I can see you're doing really good without me, baby
 
 ### $ sed '/lonely,/d' example.txt
 Two minus one
+
 I can see you're doing really good without me, baby
+
 Two minus one
+
 I'm doing great myself
+
 Hope you know I am
+
 Two minus one
+
 I'm super fine
+
 I don't need you anymore
 
 ---
 
 ### $ sed '/Two/!d' example.txt
 Two minus one
+
 Two minus one
+
 Two minus one
 
 ---
 
 ### $ sed -n '1,5s/minus//gp' example.txt
 Two  one
+
 Two  one
 
 ---
@@ -249,12 +278,21 @@ hell you know I am
 
 ### $ sed 's/one$/Two/' example.txt
 Two minus one
+
 I can see you're doing really good without me, baby
+
 Two minus one
+
 I'm doing great myself
+
 Hope you know I am
+
 'Cause I'm not lonely, lonely, lonely, lonely, yeah
+
 Lonely, lonely, lonely, lonely, yeah
+
 Two minus one
+
 I'm super fine
+
 I don't need you anymore
