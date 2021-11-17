@@ -36,8 +36,9 @@ awk /패턴/ {동작}
 |특정 필드 합 계산|'{sum+=$2}END{print sum}'|
 |파일로부터 awk 실행|-f awk.script|
 
-<datails markdown="1">
+<datails> 
 <summary>접기/펼치기</summary>
+<div markdown="1">
 
 ## * 출력결과
 
@@ -134,6 +135,7 @@ awk /패턴/ {동작}
 
 ---
 
+</div>
 </datails>
 
 ## 4) **sed**
