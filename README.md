@@ -38,7 +38,7 @@ awk /패턴/ {동작}
 
 
 <details> 
-<summary>접기/펼치기</summary>
+<summary>사용예시</summary>
 <div markdown="1">
 
 ## * 출력결과
@@ -176,6 +176,11 @@ awk /패턴/ {동작}
 |g|치환이 행 전체에서 이루어진다.|
 |p|행을 출력한다.|
 
+
+<details> 
+<summary>사용예시</summary>
+<div markdown="1">
+
 ## * 출력결과
 
 ### $ cat sed_example.txt
@@ -304,8 +309,7 @@ I'm super fine
 I don't need you anymore
 
 
-
-
-ddddd
+</div>
+</details>
 
 
