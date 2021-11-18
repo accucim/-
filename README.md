@@ -26,7 +26,7 @@ awk /패턴/ {동작}
 
 |설명|예시(앞에 awk와 뒤의 filename은 생략)|
 |------|-------|
-|파일 전체 내용 출력|'{print}'|
+|[파일 전체 내용 출력](####파일-전체-내용-출력)|'{print}'|
 |필드 n값 출력|'{print $n}'|
 |str이 있는 줄 출력|'/str/'|
 |str로 시작하는  줄 출력|'/^str/'|
@@ -43,8 +43,10 @@ awk /패턴/ {동작}
 
 ## 출력결과
 
+#### 파일 전체 내용 출력
+---
 ```
-### $ awk '{print}' awk_example.txt
+$ awk '{print}' awk_example.txt
 가게이름	가격	위치
 탱고아구찜	40000	광주 삼각동
 김성용아구찜	28000	광주 문흥동
@@ -53,11 +55,10 @@ awk /패턴/ {동작}
 장어나라	29000	광주 문흥동
 대게나라	싯가	광주 상무지구
 ```
-
+### 필드 1 값 출력
 ---
-
 ```
-### $ awk '{print $1}' awk_example.txt
+$ awk '{print $1}' awk_example.txt
 가게이름
 탱고아구찜
 김성용아구찜
@@ -66,41 +67,37 @@ awk /패턴/ {동작}
 장어나라
 대게나라
 ```
-
+### 아구찜이 있는 줄 출력
 ---
-
 ```
-### $ awk '/아구찜/' awk_example.txt
+$ awk '/아구찜/' awk_example.txt
 탱고아구찜	40000	광주 삼각동
 김성용아구찜	28000	광주 문흥동
 포미아구찜	15000	목포 하당
 ```
-
+### 장어로 시작한는 줄 출력
 ---
-
 ```
-### $ awk '/^장어/' awk_example.txt
+$ awk '/^장어/' awk_example.txt
 장어나라        29000   광주 문흥동
 ```
 
+### 필드 수 출력
 ---
-
 ```
-### $ awk '{print NF}' awk_example.txt
+$ awk '{print NF}' awk_example.txt
 3 4 0 4 0 4 0 4 0 4 0 4
 ```
-
+### 필드 1이 대게나라로 시작한다면 일치하는 행 출력
 ---
-
 ```
-### $ awk '$1 == "대게나라" {print $1"\t" $2"\t" $3"\t" $4}' awk_example.txt
+$ awk '$1 == "대게나라" {print $1"\t" $2"\t" $3"\t" $4}' awk_example.txt
 대게나라        싯가    광주    상무지구
 ```
-
+### 필드 구분 문자 \t
 ---
-
 ```
-### $ awk -F'\t' '{print $1 $2}' awk_example.txt	//필드 분리자
+$ awk -F'\t' '{print $1 $2}' awk_example.txt	//필드 분리자
 가게이름가격
 탱고아구찜40000
 김성용아구찜28000
@@ -109,18 +106,14 @@ awk /패턴/ {동작}
 장어나라29000
 대게나라싯가
 ```
-
+### 필드 2의 값 계산
 ---
-
 ```
-### $ awk '{sum+=$2}END{print sum}' awk_example.txt
+$ awk '{sum+=$2}END{print sum}' awk_example.txt
 161000
 ```
 
----
 
-</div>
-</details>
 
 # 4) **sed**
 + sed 명령어는 원복 텍스트 파일을 편집하는 명령어이다.
@@ -150,6 +143,7 @@ awk /패턴/ {동작}
 |str1을 str2로 치환한다.|'s/str1/str2/'|
 |str로 시작하는 단어를 포함하는 라인의 문자열(str2)로 치환|'s/^str/str2/'|
 |str로 끝나는 단어를 포함하는 라인의 문자열(str2)로 치환|'s/str$/str2/'|
+|문자열 추가|a\str|
 
 
 *sed s와 같이 쓰는 치환 플래그*
@@ -160,14 +154,12 @@ awk /패턴/ {동작}
 |p|행을 출력한다.|
 
 
-<details> 
-<summary>사용예시</summary>
-<div markdown="1">
-
 ## 출력결과
 
+### 원본파일
+---
 ```
-### $ cat example.txt
+$ cat example.txt
 Two minus one
 I can see you're doing really good without me, baby
 Two minus one
@@ -177,11 +169,10 @@ Hope you know I am
 Lonely, lonely, lonely, lonely, yeah
 Two minus one
 ```
-
----
-
+### 파일 전체 내용 출력
+--- 
 ```
-### $ sed -n '/$/p' example.txt
+$ sed -n '/$/p' example.txt
 Two minus one
 I can see you're doing really good without me, baby
 Two minus one
@@ -191,27 +182,24 @@ Hope you know I am
 Lonely, lonely, lonely, lonely, yeah
 Two minus one
 ```
-
+### 3행 출력
 ---
-
 ```
-### $ sed  sed -n '3p' example.txt
+$ sed  sed -n '3p' example.txt
 Two minus one
 ```
-
+### 1번째 행부터 2번째 행가지 출력
 ---
-
 ```
-### $ sed -n '1,2p' example.txt
+$ sed -n '1,2p' example.txt
 Two minus one
 I can see you're doing really good without me, baby
 ```
 
-
+### **lonely,** 라는 단어만 삭제하여 출력
 ---
-
 ```
-### $ sed '/lonely,/d' example.txt
+$ sed '/lonely,/d' example.txt
 Two minus one
 I can see you're doing really good without me, baby
 Two minus one
@@ -219,41 +207,36 @@ I'm doing great myself
 Hope you know I am
 Two minus one
 ```
-
+### **Two**만 포함된 행만 출력
 ---
-
 ```
-### $ sed '/Two/!d' example.txt
+$ sed '/Two/!d' example.txt
 Two minus one
 Two minus one
 ```
-
+### **1**행, **5**행에서 **minus**만 삭제한다.
 ---
-
 ```
-### $ sed -n '1,5s/minus//gp' example.txt
+$ sed -n '1,5s/minus//gp' example.txt
 Two  one
 Two  one
 ```
-
+### **'Cause**를 **Because**로 치환한다.
 ---
-
 ```
-### $ sed -n 's/'Cause/Because/p' example.txt
+$ sed -n 's/'Cause/Because/p' example.txt
 Because I'm not lonely, lonely, lonely, lonely, yeah
 ```
-
+### **hope**로 시작하는 단어를 포함하는 행의 **hell**로 치환
 ---
-
 ```
-### $ sed -n 's/^Hope/hell/p' example.txt
+$ sed -n 's/^Hope/hell/p' example.txt
 hell you know I am
 ```
-
+### **one**으로 끝나는 단어를 포함하는 라인의 **ONE**로 치환
 ---
-
 ```
-### $ sed 's/one.$/ONE/g' example.txt
+$ sed 's/one.$/ONE/g' example.txt
 Two minus ONE 
 I can see you're doing really good without me, baby 
 Two minus ONE 
@@ -264,7 +247,11 @@ Lonely, lonely, lonely, lonely, yeah
 Two minus ONE
 ```
 
-</div>
-</details>
+### **am**으로 끝나는 단어 뒤에 **am a pizza I am a pizza** 문자열 추가
+---
+```
+$ sed -n 's/am.$/a pizza I am a pizza/gp' example.txt
+Hope you know I a pizza I am a pizza
+```
 
 
