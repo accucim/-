@@ -308,14 +308,14 @@ hell you know I am
 
 ```
 ### $ sed 's/one.$/ONE/g' example.txt
-Two minus ONE <br/>
-I can see you're doing really good without me, baby <br/>
-Two minus ONE <br/>
-I'm doing great myself <br/>
-Hope you know I am <br/>
-'Cause I'm not lonely, lonely, lonely, lonely, yeah <br/>
-Lonely, lonely, lonely, lonely, yeah <br/>
-Two minus ONE <br/>
+Two minus ONE 
+I can see you're doing really good without me, baby 
+Two minus ONE 
+I'm doing great myself
+Hope you know I am
+'Cause I'm not lonely, lonely, lonely, lonely, yeah
+Lonely, lonely, lonely, lonely, yeah
+Two minus ONE
 ```
 
 </div>
