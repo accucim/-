@@ -45,20 +45,12 @@ awk /패턴/ {동작}
 
 ```
 ### $ awk '{print}' awk_example.txt
-
 가게이름	가격	위치
-
 탱고아구찜	40000	광주 삼각동
-
 김성용아구찜	28000	광주 문흥동
-
-
 포미아구찜	15000	목포 하당
-
 해안식당	49000	광주 상무지구
-
 장어나라	29000	광주 문흥동
-
 대게나라	싯가	광주 상무지구
 ```
 
@@ -67,27 +59,20 @@ awk /패턴/ {동작}
 ```
 ### $ awk '{print $1}' awk_example.txt
 가게이름
-
 탱고아구찜
-
 김성용아구찜
-
 포미아구찜
-
 해안식당
-
 장어나라
-
 대게나라
 ```
+
 ---
 
 ```
 ### $ awk '/아구찜/' awk_example.txt
 탱고아구찜	40000	광주 삼각동
-
 김성용아구찜	28000	광주 문흥동
-
 포미아구찜	15000	목포 하당
 ```
 
@@ -102,18 +87,7 @@ awk /패턴/ {동작}
 
 ```
 ### $ awk '{print NF}' awk_example.txt
-3
-4
-0
-4
-0
-4
-0
-4
-0
-4
-0
-4
+3 4 0 4 0 4 0 4 0 4 0 4
 ```
 
 ---
@@ -128,17 +102,11 @@ awk /패턴/ {동작}
 ```
 ### $ awk -F'\t' '{print $1 $2}' awk_example.txt	//필드 분리자
 가게이름가격
-
 탱고아구찜40000
-
 김성용아구찜28000
-
 포미아구찜15000
-
 해안식당49000
-
 장어나라29000
-
 대게나라싯가
 ```
 
@@ -201,19 +169,12 @@ awk /패턴/ {동작}
 ```
 ### $ cat example.txt
 Two minus one
-
 I can see you're doing really good without me, baby
-
 Two minus one
-
 I'm doing great myself
-
 Hope you know I am
-
 'Cause I'm not lonely, lonely, lonely, lonely, yeah
-
 Lonely, lonely, lonely, lonely, yeah
-
 Two minus one
 ```
 
@@ -222,19 +183,12 @@ Two minus one
 ```
 ### $ sed -n '/$/p' example.txt
 Two minus one
-
 I can see you're doing really good without me, baby
-
 Two minus one
-
 I'm doing great myself
-
 Hope you know I am
-
 'Cause I'm not lonely, lonely, lonely, lonely, yeah
-
 Lonely, lonely, lonely, lonely, yeah
-
 Two minus one
 ```
 
@@ -250,7 +204,6 @@ Two minus one
 ```
 ### $ sed -n '1,2p' example.txt
 Two minus one
-
 I can see you're doing really good without me, baby
 ```
 
@@ -260,15 +213,10 @@ I can see you're doing really good without me, baby
 ```
 ### $ sed '/lonely,/d' example.txt
 Two minus one
-
 I can see you're doing really good without me, baby
-
 Two minus one
-
 I'm doing great myself
-
 Hope you know I am
-
 Two minus one
 ```
 
@@ -277,7 +225,6 @@ Two minus one
 ```
 ### $ sed '/Two/!d' example.txt
 Two minus one
-
 Two minus one
 ```
 
@@ -286,7 +233,6 @@ Two minus one
 ```
 ### $ sed -n '1,5s/minus//gp' example.txt
 Two  one
-
 Two  one
 ```
 
