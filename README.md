@@ -19,6 +19,7 @@
 	extern char *optarg
 	extern int optind, opterr, optopt;
 	```
+
 		+ optarg: 인수를 필요로 하는 옵션을 처리할 때 필요한 인수 포인터
 
 		+ optind: 처리될 옵션의 index이다. 
