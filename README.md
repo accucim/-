@@ -1,13 +1,58 @@
 # 오픈소스 명령어 과제
 
-# 1) **getopt**
-> getopt는 옵션을 구분하는데 사용되는 함수이다.
+# 1) **getopt & getopts**
++ getopt는 옵션을 쉽게 처리하기 위해 만들어진 함수이다.
 
-# 2) **getopts**
++ 함수의 원형은 다음과 같다.
+	```
+	#include<unistd.h>
+	int getopt(int argc, char *const argv[], const char *opstring)
+	```
+	`int argc`: 인수의 개수
+	`char *const argv`: 인수의 내용
+	`const char *opstring`: 옵션
+	
+	+ 함수와 관련된 전역 변수에는 다음과 같은 것들이 있다.
+	```
+	extern char *optarg
+	extern int optind, opterr, optopt;
+	```
+		+ optarg: 인수를 필요로 하는 옵션을 처리할 때 필요한 인수 포인터
+		+ optind: 처리될 옵션의 index이다. 
+		+ opterr: 에러 문자열 출력 여부를 결정한다.(0일 경우 출력하지 않는다.)
+		+ optopt: 지정되지 않은 옵션을 저장하는 변수이다.
+
++ getopt()를 반복적으로 호출하게 되면 각각의 옵션인자에서 각각의 옵션 문자들이 성공적으로 반환된다.
+
+** 그러나 getopt는 몇가지 문제들을 가지고있었다. **
+	1) 인수에서 공백이나 쉘 특수문자(~,.,[] 등등)를 처리할 수 없었다.
+	2) 오류 메세지의 출력을 비활성화할 수 있는 기능이 없었다.
+
+이를 보완하고자 나온 것이 **getopts**이다.[^1]
++ 사용은 다음과 같다.
+	`getopts optstring varname [parameter]`
 
 
+## * 실행 예제
+```
+#!/bin/bash
+while getopts "ab:" opt
+do
+	case $opt in
+	a)
+	echo "I am a pizza"
+	;;
+	b) b=$OPTARG
+	echo "from $b"
+	;;
+	esac
+done
+```
 
-# 3) **awk**
+1 지금의 getopt는 문제점을 보완해서 나왔다고 하는데 조사할 내용은 getopts로 발전이므로 넘어가도록한다.
+
+
+# 2) **awk**
 + awk는 파일로부터 패턴을 검사해 패턴과 일치하는 값을 얻는 기능을 수행한다.
 
 + awk는 기본적으로 입력 데이터를 라인 단위의 레코드로 인식한다. 
@@ -27,13 +72,13 @@ awk /패턴/ {동작}
 |설명|예시(앞에 awk와 뒤의 filename은 생략)|
 |------|-------|
 |[파일 전체 내용 출력](#파일-전체-내용-출력)|'{print}'|
-|필드 n값 출력|'{print $n}'|
-|str이 있는 줄 출력|'/str/'|
-|str로 시작하는  줄 출력|'/^str/'|
-|필드 수 출력|'{print NF}'|
-|일치하는 문자 행 출력|'$n == "str" {print $n}'|
-|필드 구분 문자 변경|-F':''{print $1, $2}'|
-|특정 필드 합 계산|'{sum+=$2}END{print sum}'|
+|[필드 n값 출력](#필드 1 값 출력)|'{print $n}'|
+|[str이 있는 줄 출력](#아구찜이 있는 줄 출력)|'/str/'|
+|[str로 시작하는  줄 출력](#장어로 시작하는 줄 출력)|'/^str/'|
+|[필드 수 출력](#필드 수 출력)|'{print NF}'|
+|[일치하는 문자 행 출력](#필드 1이 대게나라로 시작한다면 일치하는 행 출력)|'$n == "str" {print $n}'|
+|[필드 구분 문자 변경](#필드 구분 문자 \t)|-F':''{print $1, $2}'|
+|[특정 필드 합 계산](#필드 2의 값 계산)|'{sum+=$2}END{print sum}'|
 |파일로부터 awk 실행|-f awk.script|
 
 
@@ -71,7 +116,7 @@ $ awk '/아구찜/' awk_example.txt
 김성용아구찜	28000	광주 문흥동
 포미아구찜	15000	목포 하당
 ```
-### 장어로 시작한는 줄 출력
+### **장어**로 시작하는 줄 출력
 ---
 ```
 $ awk '/^장어/' awk_example.txt
@@ -84,7 +129,7 @@ $ awk '/^장어/' awk_example.txt
 $ awk '{print NF}' awk_example.txt
 3 4 0 4 0 4 0 4 0 4 0 4
 ```
-### 필드 1이 대게나라로 시작한다면 일치하는 행 출력
+### 필드 1이 **대게나라**로 시작한다면 일치하는 행 출력
 ---
 ```
 $ awk '$1 == "대게나라" {print $1"\t" $2"\t" $3"\t" $4}' awk_example.txt
@@ -111,7 +156,7 @@ $ awk '{sum+=$2}END{print sum}' awk_example.txt
 
 
 
-# 4) **sed**
+# 3) **sed**
 + sed 명령어는 원복 텍스트 파일을 편집하는 명령어이다.
 
 + 원본을 건드리지 않고 편집하기 때문에 작업이 완료되었어도 원본에는 영향이 없다.
@@ -129,17 +174,17 @@ $ awk '{sum+=$2}END{print sum}' awk_example.txt
 
 |설명|예시|
 |------|-------|
-|전체 내용 출력|'/$/p'|
-|특정 행 출력|'np'|
-|n1부터 n2까지 출력|'n1,n2p'|
-|str이 포함된 줄을 삭제하여 출력한다.|'str/d'|
-|str이 포함된 줄만 출력한다.|'/str/!d'|
-|특정 줄에서 str만 삭제한다.|'n1,n2s/str//g'|
+|[전체 내용 출력](#파일 전체 내용 출력)|'/$/p'|
+|[특정 행 출력](#3행 출력)|'np'|
+|[n1부터 n2까지 출력](#1번째 행부터 2번째 행까지 출력)|'n1,n2p'|
+|[str이 포함된 줄을 삭제하여 출력한다.](#lonely, 라는 단어만 삭제하여 출력)|'str/d'|
+|[str이 포함된 줄만 출력한다.](#Two만 포함된 행만 출력)|'/str/!d'|
+|[특정 줄에서 str만 삭제한다.](#1행, 5행에서 minus만 삭제한다.)|'n1,n2s/str//g'|
 |공백 줄을 삭제한다.|'/^$/d'|
-|str1을 str2로 치환한다.|'s/str1/str2/'|
-|str로 시작하는 단어를 포함하는 라인의 문자열(str2)로 치환|'s/^str/str2/'|
-|str로 끝나는 단어를 포함하는 라인의 문자열(str2)로 치환|'s/str$/str2/'|
-|문자열 추가|a\str|
+|[str1을 str2로 치환한다](#'Cause를 Because로 치환한다.).|'s/str1/str2/'|
+|[str로 시작하는 단어를 포함하는 라인의 문자열(str2)로 치환](#hope로 시작하는 단어를 포함하는 행의 hell로 치환)|'s/^str/str2/'|
+|[str로 끝나는 단어를 포함하는 라인의 문자열(str2)로 치환](#one으로 끝나는 단어를 포함하는 라인의 ONE로 치환)|'s/str$/str2/'|
+|[문자열 추가](#am으로 끝나는 단어 뒤에 am a pizza I am a pizza 문자열 추가)|a\str|
 
 
 *sed s와 같이 쓰는 치환 플래그*
@@ -184,7 +229,7 @@ Two minus one
 $ sed  sed -n '3p' example.txt
 Two minus one
 ```
-### 1번째 행부터 2번째 행가지 출력
+### 1번째 행부터 2번째 행까지 출력
 ---
 ```
 $ sed -n '1,2p' example.txt
@@ -246,8 +291,9 @@ Two minus ONE
 ### **am**으로 끝나는 단어 뒤에 **am a pizza I am a pizza** 문자열 추가
 ---
 ```
-$ sed -n 's/am.$/a pizza I am a pizza/gp' example.txt
-Hope you know I a pizza I am a pizza
+$ sed -n -e '5p' -e '/am.$/a\a pizza I am a pizza' example.txt
+Hope you know I am
+a pizza I am a pizza
 ```
 
 
