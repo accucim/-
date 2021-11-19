@@ -36,7 +36,8 @@
 
 	2) 오류 메세지의 출력을 비활성화할 수 있는 기능이 없었다.
 
-## 이를 보완하고자 나온 것이 **getopts**이다.
+*이를 보완하고자 나온 것이 **getopts**이다.*<sup>[1](footnote_1)</sup>
+
 + 사용은 다음과 같다.
 	`getopts optstring varname [parameter]`
 
@@ -56,6 +57,7 @@ do
 	esac
 done
 ```
++ 출력 결과
 
 
 # 2) **awk**
@@ -303,3 +305,7 @@ a pizza I am a pizza
 ```
 
 
+
+
+
+<a name="footname_1">1</a>: 지금의 getopt는 보안되어 나왔다하는데 우리가 조사할 것은 getopts로의 발전이므로 넘어간다.
