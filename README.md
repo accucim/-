@@ -75,7 +75,7 @@ done
 ![getopt3](https://user-images.githubusercontent.com/93031435/142662429-5c6ab330-ae02-4e4f-be5d-2bac25129505.PNG)
 
 
-## 3) **sed**
+## 3)sed
 + sed 명령어는 원복 텍스트 파일을 편집하는 명령어이다.
 
 + 원본을 건드리지 않고 편집하기 때문에 작업이 완료되었어도 원본에는 영향이 없다.
