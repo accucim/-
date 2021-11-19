@@ -1,9 +1,11 @@
 # 오픈소스 명령어 과제
 
 # 목차
-[1) getopt & getopts](#getopt-&-getopts)
-[2) sed](#sed)
-[3) awk](#awk)
+1)[getopt & getopts](#getopt-&-getopts)
+
+2)[sed](#sed)
+
+3)[awk](#awk)
 
 
 
