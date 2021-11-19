@@ -59,11 +59,8 @@ done
 ```
 + 출력 결과
 ![getopt1](https://user-images.githubusercontent.com/93031435/142662411-2f807e26-fec6-47e9-b087-66efa8b5a4f6.PNG)
-<img src="https://user-images.githubusercontent.com/93031435/142662411-2f807e26-fec6-47e9-b087-66efa8b5a4f6.PNG" width=“190" height=“50">
 ![getopt2](https://user-images.githubusercontent.com/93031435/142662419-e58a5060-6c30-4282-ac79-787a786abb96.PNG)
-<img src="https://user-images.githubusercontent.com/93031435/142662419-e58a5060-6c30-4282-ac79-787a786abb96.PNG" width=“190" height=“50">
 ![getopt3](https://user-images.githubusercontent.com/93031435/142662429-5c6ab330-ae02-4e4f-be5d-2bac25129505.PNG)
-<img src="https://user-images.githubusercontent.com/93031435/142662429-5c6ab330-ae02-4e4f-be5d-2bac25129505.PNG" width=“190" height=“50">
 
 
 # 2) **awk**
