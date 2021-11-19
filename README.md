@@ -36,7 +36,7 @@
 
 	2) 오류 메세지의 출력을 비활성화할 수 있는 기능이 없었다.
 
-이를 보완하고자 나온 것이 **getopts**이다.
+## 이를 보완하고자 나온 것이 **getopts**이다.
 + 사용은 다음과 같다.
 	`getopts optstring varname [parameter]`
 
