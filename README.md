@@ -4,6 +4,8 @@
 
 ## 1.[getopt & getopts](#getopt-&-getopts)
 
+---
+
 
 # getopt & getopts
 + getopt는 옵션을 쉽게 처리하기 위해 만들어진 함수이다.
