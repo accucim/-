@@ -9,26 +9,33 @@
 	int getopt(int argc, char *const argv[], const char *opstring)
 	```
 	`int argc`: 인수의 개수
+
 	`char *const argv`: 인수의 내용
+
 	`const char *opstring`: 옵션
-	
+
 	+ 함수와 관련된 전역 변수에는 다음과 같은 것들이 있다.
 	```
 	extern char *optarg
 	extern int optind, opterr, optopt;
 	```
 		+ optarg: 인수를 필요로 하는 옵션을 처리할 때 필요한 인수 포인터
+
 		+ optind: 처리될 옵션의 index이다. 
+
 		+ opterr: 에러 문자열 출력 여부를 결정한다.(0일 경우 출력하지 않는다.)
+
 		+ optopt: 지정되지 않은 옵션을 저장하는 변수이다.
 
 + getopt()를 반복적으로 호출하게 되면 각각의 옵션인자에서 각각의 옵션 문자들이 성공적으로 반환된다.
 
 ** 그러나 getopt는 몇가지 문제들을 가지고있었다. **
+
 	1) 인수에서 공백이나 쉘 특수문자(~,.,[] 등등)를 처리할 수 없었다.
+
 	2) 오류 메세지의 출력을 비활성화할 수 있는 기능이 없었다.
 
-이를 보완하고자 나온 것이 **getopts**이다.[^1]
+이를 보완하고자 나온 것이 **getopts**이다.
 + 사용은 다음과 같다.
 	`getopts optstring varname [parameter]`
 
@@ -48,8 +55,6 @@ do
 	esac
 done
 ```
-
-1 지금의 getopt는 문제점을 보완해서 나왔다고 하는데 조사할 내용은 getopts로 발전이므로 넘어가도록한다.
 
 
 # 2) **awk**
