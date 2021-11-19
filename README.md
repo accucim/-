@@ -1,7 +1,7 @@
 # 오픈소스 명령어 과제
 
 # 목차
-+ ## [getopt & getopts](#-getopt-&-getopts)
++ ## [getopt & getopts](#getopt-&-getopts)
 
 + ## [sed](#sed)
 
@@ -9,7 +9,7 @@
 
 
 
-## 1) **getopt & getopts**
+## 1) getopt & getopts
 + getopt는 옵션을 쉽게 처리하기 위해 만들어진 함수이다.
 
 + 함수의 원형은 다음과 같다.
