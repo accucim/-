@@ -1,7 +1,7 @@
 # 오픈소스 명령어 과제
 
 # 목차
-+ ## [getopt & getopts](#getopt-&-getopts)
++ ## [1) getopt & getopts](#getopt-&-getopts)
 
 + ## [awk](#awk)
 
